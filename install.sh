@@ -6,11 +6,12 @@ if [ "$EUID" = 0 ]; then
   exit
 fi
 
-is_bazzite=$(cat /etc/os-release  | sed -e 's/\(.*\)/\L\1/' | grep bazzite-deck)
+is_bazzite=$(cat /etc/os-release  | sed -e 's/\(.*\)/\L\1/' | grep bazzite)
 if [ "${is_bazzite}" ]; then
-  echo "Handheld Daemon is preinstalled on bazzite-deck."
-  echo "If your device is not whitelisted, you can enable Handheld Daemon with the command:"
-  echo "sudo systemctl enable --now hhd@\$(whoami)"
+  echo "Installing Handheld Daemon on Bazzite is not supported."
+  echo
+  echo "For Handheld Daemon in desktop mode/gamemode you can use Anatase"
+  echo "https://docs.anatase.org/basics/install#rebasing-from-bazzite"
   exit
 fi
 
